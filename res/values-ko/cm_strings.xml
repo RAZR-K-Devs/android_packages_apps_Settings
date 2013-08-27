@@ -597,4 +597,7 @@
 
     <!-- Center Clock -->
     <string name="status_bar_center_clock_title">중앙 시계</string>
+
+    <!-- ListView animation -->
+    <string name="listview_category">리스트뷰 애니메이션</string>
 </resources>
