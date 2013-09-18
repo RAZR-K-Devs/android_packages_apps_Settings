@@ -594,4 +594,7 @@
     <string name="ram_bar_color_disabled">사용 안함</string>
     <string name="ram_bar_button_help">도움말</string>
     <string name="ram_bar_button_reset">색상 초기화</string>
+
+    <!-- Center Clock -->
+    <string name="status_bar_center_clock_title">중앙 시계</string>
 </resources>
