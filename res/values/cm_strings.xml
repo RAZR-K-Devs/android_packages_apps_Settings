@@ -904,4 +904,9 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="status_bar_toggle_brightness">Brightness control</string>
     <string name="status_bar_toggle_brightness_summary">Adjust brightness by sliding across the status bar</string>
     <string name="status_bar_toggle_info">Automatic brightness is enabled</string>
+
+    <!-- General Settings -->
+    <string name="custom_carrier_label_title">Custom carrier label</string>
+    <string name="custom_carrier_label_explain">Please enter a new label. Enter an empty to revert to stock label.</string>
+    <string name="custom_carrier_label_notset">Custom label currently not set</string>
 </resources>
