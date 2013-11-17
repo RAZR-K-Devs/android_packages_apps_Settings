@@ -45,6 +45,18 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
         mStatusBarBattery.setValue(String.valueOf(batteryStyle));
         mStatusBarBattery.setSummary(mStatusBarBattery.getEntry());
         mStatusBarBattery.setOnPreferenceChangeListener(this);
+
+        CheckBoxPreference statusBarBrightnessControl = (CheckBoxPreference)
+                prefSet.findPreference(Settings.System.STATUS_BAR_BRIGHTNESS_CONTROL);
+
+        try {
+            if (Settings.System.getInt(resolver, Settings.System.SCREEN_BRIGHTNESS_MODE)
+                    == Settings.System.SCREEN_BRIGHTNESS_MODE_AUTOMATIC) {
+                statusBarBrightnessControl.setEnabled(false);
+                statusBarBrightnessControl.setSummary(R.string.status_bar_toggle_info);
+            }
+        } catch (SettingNotFoundException e) {
+        }
     }
 
     @Override
