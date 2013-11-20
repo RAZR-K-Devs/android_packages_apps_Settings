@@ -82,4 +82,9 @@
         android:fragment="com.android.settings.cyanogenmod.AppSidebar"
         android:title="@string/app_sidebar_title"
         android:summary="@string/app_sidebar_summary" />
+
+    <PreferenceScreen
+        android:key="recents_ram_bar"
+        android:fragment="com.android.settings.cyanogenmod.RamBar"
+        android:title="@string/ram_bar" />
 </PreferenceScreen>
