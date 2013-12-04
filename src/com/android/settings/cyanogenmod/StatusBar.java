@@ -18,17 +18,24 @@ package com.android.settings.cyanogenmod;
 
 import android.content.ContentResolver;
 import android.os.Bundle;
+import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
+import android.preference.PreferenceScreen;
 import android.provider.Settings;
+import android.provider.Settings.SettingNotFoundException;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
 public class StatusBar extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
+    private static final String STATUS_BAR_AM_PM = "status_bar_am_pm";
     private static final String STATUS_BAR_BATTERY = "status_bar_battery";
+    private static final String STATUS_BAR_SHOW_BATTERY_PERCENT = "status_bar_show_battery_percent";
 
+    private CheckBoxPreference mStatusBarShowBatteryPercent;
+    private ListPreference mStatusBarAmPm;
     private ListPreference mStatusBarBattery;
 
     @Override
@@ -37,6 +44,7 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
 
         addPreferencesFromResource(R.xml.status_bar);
 
+        PreferenceScreen prefSet = getPreferenceScreen();
         ContentResolver resolver = getActivity().getContentResolver();
 
         mStatusBarBattery = (ListPreference) findPreference(STATUS_BAR_BATTERY);
@@ -54,6 +62,12 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
         mStatusBarAmPm.setSummary(mStatusBarAmPm.getEntry());
         mStatusBarAmPm.setOnPreferenceChangeListener(this);
 
+        mStatusBarShowBatteryPercent = (CheckBoxPreference)
+                prefSet.findPreference(STATUS_BAR_SHOW_BATTERY_PERCENT);
+
+        if (Settings.System.getInt(resolver, Settings.System.STATUS_BAR_BATTERY, 0) != 0) {
+            mStatusBarShowBatteryPercent.setEnabled(false);
+        }
 
         CheckBoxPreference statusBarBrightnessControl = (CheckBoxPreference)
                 prefSet.findPreference(Settings.System.STATUS_BAR_BRIGHTNESS_CONTROL);
@@ -76,6 +90,11 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
             int index = mStatusBarBattery.findIndexOfValue((String) newValue);
             Settings.System.putInt(resolver, Settings.System.STATUS_BAR_BATTERY, batteryStyle);
             mStatusBarBattery.setSummary(mStatusBarBattery.getEntries()[index]);
+            if (index == 0) {
+                mStatusBarShowBatteryPercent.setEnabled(true);
+            } else {
+                mStatusBarShowBatteryPercent.setEnabled(false);
+            }
             return true;
         } else if (mStatusBarAmPm != null && preference == mStatusBarAmPm) {
             int statusBarAmPm = Integer.valueOf((String) newValue);
