@@ -22,6 +22,11 @@
         android:title="@string/battery_around_lockscreen_ring"
         android:defaultValue="false" />
 
+    <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
+        android:key="lockscreen_see_through"
+        android:title="@string/see_through_title"
+        android:summary="@string/see_through_summary" />
+
     <PreferenceCategory
         android:title="@string/lockscreen_widgets_category_title"
         android:key="lockscreen_widgets_category" >
