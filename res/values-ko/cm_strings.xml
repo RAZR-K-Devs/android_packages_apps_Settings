@@ -396,6 +396,7 @@
     <string name="title_tile_nfc">NFC</string>
     <string name="title_tile_screen_timeout">절전 모드</string>
     <string name="title_tile_quiet_hours">조용히 모드</string>
+    <string name="title_tile_music">음악</string>
     <string name="title_dynamic_tiles">동적 타일</string>
     <string name="dynamic_tiles_note_title">정보</string>
     <string name="dynamic_tiles_note_summary">동적 타일은 평상시에는 보이지 않으며 시스템 이벤트 발생에 따라 나타납니다.</string>
