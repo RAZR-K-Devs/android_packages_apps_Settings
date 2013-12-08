@@ -309,6 +309,7 @@
     <string name="cm_sound_mode_vibrate">진동</string>
     <string name="cm_sound_mode_sound">소리</string>
     <string name="cm_sound_mode_soundVibrate">소리 + 진동</string>
+    <string name="pref_music_mode_title">음악 타일</string>
     <string name="kill_app_longpress_back">뒤로 버튼으로 앱 끄기</string>
     <string name="kill_app_longpress_back_summary">뒤로가기 버튼을 길게 눌러 사용중인 애플리케이션 종료</string>
     <string name="changelog_title">변경 사항 보기</string>
